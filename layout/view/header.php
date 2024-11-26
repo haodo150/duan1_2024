@@ -31,8 +31,7 @@
           </p>
           <?php if(isset($_SESSION['user'])): ?>
             <div class="header__top-isset">
-              <a href="?mod=user&act=account" class="header__top-action">Hello, <?= $_SESSION['user']['username']?></a> /
-              <a href="?mod=user&act=logout" class="header__top-action">Logout</a>
+              <a href="?mod=user&act=account" class="header__top-action">Hello, <?= $_SESSION['user']['username']?></a>
             </div>
           <?php else: ?>
           <a href="?mod=user&act=login" class="header__top-action">
@@ -89,14 +88,12 @@
         <div class="header__user-action">
           <a href="?mod=page&act=wishlist" class="header__action-btn">
             <img src="public/assets/img/icon-heart.svg" alt="">
-            <span class="count">0</span>
           </a>
         </div>
 
         <div class="header__user-action">
-          <a href="?mod=page&act=cart" class="header__action-btn">
+          <a href="?mod=product&act=cart" class="header__action-btn">
             <img src="public/assets/img/icon-cart.svg" alt="">
-            <span class="count">0</span>
           </a>
 
           <div class="header__action-btn nav__toggle" id="nav-toggle">

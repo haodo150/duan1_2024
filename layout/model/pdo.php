@@ -96,3 +96,19 @@ function pdo_getValue($sql){
         unset($conn);
     }
 }
+
+function pdo_insert($sql){
+    $sql_args = array_slice(func_get_args(), 1);
+    try{
+        $conn = pdo_connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        return $conn -> lastInsertId();
+    }
+    catch(PDOException $e){
+        throw $e;
+    }
+    finally{
+        unset($conn);
+    }
+}

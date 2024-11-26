@@ -2,7 +2,7 @@
       <!--=============== BREADCRUMB ===============-->
       <section class="breadcrumb">
         <ul class="breadcrumb__list flex container">
-          <li><a href="index.html" class="breadcrumb__link">Home</a></li>
+          <li><a href="?mod=page&act=home" class="breadcrumb__link">Home</a></li>
           <li><span class="breadcrumb__link">></span></li>
           <li><span class="breadcrumb__link">Shop</span></li>
           <li><span class="breadcrumb__link">></span></li>
@@ -25,16 +25,16 @@
             </tr>
              <?php $i=1; $tong=0; foreach($cart as $product): ?>
             <tr>
-              <td><?=$i ?></td>
+              <td><?= $i ?></td>
               <td><img src="<?= $baseURL ?><?=$product['img']?>" alt="" class="table__img"></td>
               <td><h3 class="table__title"><?=$product['name_products']?></h3>
                 <p class="table__description">Maboriosam in a tonto nesciung distingy magndapibus</p>
               </td>
 
-              <td><span class="table__price"><?=$product['price_products']?></span></td>
-              <td><?=$product['soluong']?></td>
+              <td><span class="table__price">$<?=$product['price_products']?></span></td>
+              <td><?=$product['quantity']?></td>
               <td><span class="table__subtotal">$<?=number_format($product['subtotal'])?></span></td>
-              <td><a href="?mod=page&act=delete&index=<?= $i-1 ?>"><i class="fi fi-rs-trash table__trash"></i></a></td>
+              <td><a href="?mod=product&act=delete&index=<?= $i-1 ?>"><i class="fi fi-rs-trash table__trash"></i></a></td>
             </tr>
              <?php 
              $i++;
@@ -46,9 +46,6 @@
         </div>
 
         <div class="cart__actions">
-          <a href="" class="btn flex btn--md">
-            <i class="fi-rs-shuffle"></i>Update Cart
-          </a>
 
           <a href="?mod=page&act=products" class="btn flex btn--md">
             <i class="fi-rs-shopping-bag"></i>Continue Shopping
@@ -108,29 +105,12 @@
               </tr>
             </table>
 
-            <a href="checkout.html" class="btn flex btn--md">
+            <a href="?mod=product&act=checkout" class="btn flex btn--md">
               <i class="fi fi-rs-box-alt"></i> Proceed To Checkout
             </a>
           </div>
         </div>
       </section>
 
-      <!--=============== NEWSLETTER ===============-->
-      <section class="newsletter section">
-        <div class="newsletter__container container grid">
-          <h3 class="newsletter__title flex">
-            <img src="public/assets/img/icon-email.svg" alt="" class="newsletter__icon">
-            Sign up to Newsletter
-          </h3>
-
-          <p class="newsletter__description">
-            ...and receive $25 coupon for first shopping.
-          </p>
-
-          <form action="" class="newsletter__form">
-            <input type="text" class="newsletter__input" placeholder="Enter your email">
-            <button type="submit" class="newsletter__btn">Subcribe</button>
-          </form>
-        </div>
-      </section>
+      
     </main>

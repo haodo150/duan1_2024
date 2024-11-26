@@ -125,7 +125,7 @@
             <div class="details__action">
               <input type="number" class="quantity" value="1">
               
-              <a href="?mod=page&act=addToCart&id=<?= $productDetail['id_product']?>" class="btn btn--sm">Add to Cart</a>
+              <a href="?mod=product&act=addToCart&id=<?= $productDetail['id_product']?>" class="btn btn--sm">Add to Cart</a>
 
               <a href="#" class="details__action-btn">
                 <i class="fi fi-rs-heart"></i>
@@ -513,22 +513,5 @@
         </div>
       </section>
 
-      <!--=============== NEWSLETTER ===============-->
-      <section class="newsletter section">
-        <div class="newsletter__container container grid">
-          <h3 class="newsletter__title flex">
-            <img src="public/assets/img/icon-email.svg" alt="" class="newsletter__icon">
-            Sign up to Newsletter
-          </h3>
-
-          <p class="newsletter__description">
-            ...and receive $25 coupon for first shopping.
-          </p>
-
-          <form action="" class="newsletter__form">
-            <input type="text" class="newsletter__input" placeholder="Enter your email">
-            <button type="submit" class="newsletter__btn">Subcribe</button>
-          </form>
-        </div>
-      </section>
+      
     </main>

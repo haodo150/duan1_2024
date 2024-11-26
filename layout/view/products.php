@@ -17,7 +17,7 @@
           <?php foreach ($loadSanpham as $sanpham): ?>
           <div class="product__item">
             <div class="product__banner">
-              <a href="?mod=page&act=detail&id=<?= $sanpham['id_product']?>" class="product__images">
+              <a href="?mod=product&act=detail&id=<?= $sanpham['id_product']?>" class="product__images">
                 <img src="<?= $baseURL?><?= $sanpham['img']?>" alt="" class="product__img default">
 
                 <img src="public/assets/img/j1.2.png" alt="" class="product__img hover">
@@ -38,7 +38,7 @@
             </div>
             <div class="product__content">
               <span class="product__category"><?= $sanpham['id_categories']?></span>
-              <a href="?mod=page&act=detail">
+              <a href="?mod=product&act=detail">
                 <h3 class="product__title"><?= $sanpham['name_products']?></h3>
               </a>
               <div class="product__rating">
@@ -72,22 +72,5 @@
         </ul>
       </section>
 
-      <!--=============== NEWSLETTER ===============-->
-      <section class="newsletter section">
-        <div class="newsletter__container container grid">
-          <h3 class="newsletter__title flex">
-            <img src="public/assets/img/icon-email.svg" alt="" class="newsletter__icon">
-            Sign up to Newsletter
-          </h3>
-
-          <p class="newsletter__description">
-            ...and receive $25 coupon for first shopping.
-          </p>
-
-          <form action="" class="newsletter__form">
-            <input type="text" class="newsletter__input" placeholder="Enter your email">
-            <button type="submit" class="newsletter__btn">Subcribe</button>
-          </form>
-        </div>
-      </section>
+     
     </main>

@@ -53,7 +53,11 @@
                     header('Location: ?mod=user&act=login');
                     }
                     break;
-
+            case 'account':
+                include_once "view/header.php";
+                include_once "view/account.php";
+                include_once "view/footer.php";
+                break;
             default:
                 # code...
                 break;

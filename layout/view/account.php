@@ -32,14 +32,17 @@
               <i class="fi fi-rs-user"></i> Change Password
             </p>
 
-            <p class="account__tab">
-              <i class="fi fi-rs-exit"></i> Logout
-            </p>
+            <a href="?mod=user&act=logout">
+              <p class="account__tab">
+                <i class="fi fi-rs-exit"></i> 
+                Logout
+              </p>
+            </a>
           </div>
 
           <div class="tabs__content">
             <div class="tab__content active-tab" content id="dashboard">
-              <h3 class="tab__header">Hello Rosie</h3>
+              <h3 class="tab__header">Nice to meet you, <?= $_SESSION['user']['username']?></h3>
 
               <div class="tab__body">
                 <p class="tab__description">Lorom ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi? Officia doloremque facere quia. Voluptatum, accusantium!</p>
@@ -147,22 +150,5 @@
         </div>
       </section>
 
-      <!--=============== NEWSLETTER ===============-->
-      <section class="newsletter section">
-        <div class="newsletter__container container grid">
-          <h3 class="newsletter__title flex">
-            <img src="assets/img/icon-email.svg" alt="" class="newsletter__icon">
-            Sign up to Newsletter
-          </h3>
-
-          <p class="newsletter__description">
-            ...and receive $25 coupon for first shopping.
-          </p>
-
-          <form action="" class="newsletter__form">
-            <input type="text" class="newsletter__input" placeholder="Enter your email">
-            <button type="submit" class="newsletter__btn">Subcribe</button>
-          </form>
-        </div>
-      </section>
+      
     </main>

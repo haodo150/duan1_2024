@@ -8,7 +8,7 @@
   /*========== Colors ==========*/
   /* Color mode HSL(hue, saturation, lightness) */
   --first-color: #8a1b2a;
-  --first-color-alt: hsl(129, 44%, 94%);;
+  --first-color-alt: #89555c;
   --second-color: hsl(34, 94%, 87%);
   --title-color: hsl(0, 0%, 13%);
   --text-color: hsl(154, 13%, 32%);
@@ -198,12 +198,12 @@ table{
 }
 
 .header__alert-news{
-  color: var(--text-color-light);
+  color: #fff;
   font-weight: var(--weight-600);
 }
 
 .header__top-action{
-  color: var(--text-color);
+  color: #fff;
 }
 
 .nav,
@@ -331,9 +331,9 @@ table{
 /*=============== BUTTONS ===============*/
 .btn{
   display: inline-block;
-  background-color: var(--first-color);
+  background-color: #8a1b2a;
   border: 2px solid var(--first-color);
-  color: var(--body-color);
+  color: #fff;
   padding-inline: 1.75rem;
   height: 49px;
   line-height: 49px;
@@ -343,10 +343,13 @@ table{
   font-weight: var(--weight-700);
   transition: all 0.4s var(--transition);
   cursor: pointer;
+  a{
+    color: #fff;
+  }
 }
 .btn:hover{
-  background-color: transparent;
-  color: var(--first-color);
+  background-color: #fff;
+  color: #8a1b2a;
 }
 
 .btn--md,
@@ -782,7 +785,7 @@ table{
 
 /*=============== NEWSLETTER ===============*/
 .newsletter{
-  background-color: hsl(166, 23%, 74%);
+  background-color: #8a1b2a;
 }
 
 .home__newsletter {
@@ -808,7 +811,7 @@ table{
 }
 
 .newsletter__description{
-  color: var(--title-color);
+  color: var(--body-color);
   font-family: var(--second-font);
   font-size: var(--small-font-size);
   font-weight: var(--weight-600);
