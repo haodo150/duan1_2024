@@ -12,6 +12,8 @@
                 break;
             case 'product':
                 include_once "controller/c_products.php";
+            case 'comment':
+                include_once "controller/c_comment.php";
             default:
                 # code...
                 break;

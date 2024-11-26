@@ -5,6 +5,8 @@
                 // Xử lý
                 include_once "model/m_products.php";
                 $productDetail = home_products_getById($_GET['id']);
+                include_once "./model/m_comment.php";
+                $commentList = comment_getByBook($_GET['id']);
                 // Hiển thị
                 include_once "view/header.php";
                 include_once "view/detail.php";

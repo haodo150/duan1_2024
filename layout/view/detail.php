@@ -232,10 +232,11 @@
 
           <div class="details__tab-content" content id="reviews">
             <div class="reviews__container grid">
+            <?php foreach($commentList as $cm): ?>
               <div class="review__single">
                 <div>
                   <img src="public/assets/img/avatar-1.jpg" alt="" class="review__img">
-                  <h4 class="review__title">Jacky Chan</h4>
+                  <h4 class="review__title"><?=$cm['username']?></h4>
                 </div>
                 <div class="review__data">
                   <div class="review__rating">
@@ -246,55 +247,13 @@
                     <i class="fi fi-rs-star"></i>
                   </div>
                     <p class="review__description">
-                      Thank you very fast shipping from Poland only 3days
+                      <?=$cm['content']?>
                     </p> 
 
-                    <span class="review__date">December 4, 2024 at 3:16 pm</span>
+                    <span class="review__date"> <?=$cm['date_time']?></span>
                 </div>
               </div>
-              
-              <div class="review__single">
-                <div>
-                  <img src="public/assets/img/avatar-2.jpg" alt="" class="review__img">
-                  <h4 class="review__title">Jacky Chan</h4>
-                </div>
-                <div class="review__data">
-                  <div class="review__rating">
-                    <i class="fi fi-rs-star"></i>
-                    <i class="fi fi-rs-star"></i>
-                    <i class="fi fi-rs-star"></i>
-                    <i class="fi fi-rs-star"></i>
-                    <i class="fi fi-rs-star"></i>
-                  </div>
-                    <p class="review__description">
-                      Thank you very fast shipping from Poland only 3days
-                    </p> 
-
-                    <span class="review__date">December 4, 2024 at 3:16 pm</span>
-                </div>
-              </div>
-
-              <div class="review__single">
-                <div>
-                  <img src="public/assets/img/avatar-3.jpg" alt="" class="review__img">
-                  <h4 class="review__title">Jacky Chan</h4>
-                </div>
-                <div class="review__data">
-                  <div class="review__rating">
-                    <i class="fi fi-rs-star"></i>
-                    <i class="fi fi-rs-star"></i>
-                    <i class="fi fi-rs-star"></i>
-                    <i class="fi fi-rs-star"></i>
-                    <i class="fi fi-rs-star"></i>
-                  </div>
-                    <p class="review__description">
-                      Thank you very fast shipping from Poland only 3days
-                    </p> 
-
-                    <span class="review__date">December 4, 2024 at 3:16 pm</span>
-                </div>
-              </div>
-
+              <?php endforeach; ?>
             </div>
 
             <div class="review__form">
@@ -310,13 +269,14 @@
                 <i class="fi fi-rs-star"></i>
               </div>
 
-              <form action="" class="form grid">
-                <textarea class="form__input textarea" placeholder="Wirte Comment"></textarea>
+              <form action="?mod=comment&act=post-comment" method="post" class="form grid">
+                <input type="hidden" name="id_product" value="<?= $productDetail['id_product'] ?>">
+                <textarea class="form__input textarea" name="content" placeholder="Wirte Comment"></textarea>
 
-                <div class="form__group grid">
+                <!-- <div class="form__group grid">
                   <input type="text" placeholder="Name" class="form__input" />
                   <input type="email" placeholder="Email" class="form__input" />
-                </div>
+                </div> -->
 
                 <div class="form__btn">
                   <button class="btn">Submit Review</button>
