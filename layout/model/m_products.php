@@ -10,5 +10,4 @@
         $sql = "SELECT pd.* , cg.name_categories FROM products pd INNER JOIN categories cg ON pd.id_categories = cg.id_categories WHERE id_product=?";
         return pdo_getOne($sql, $id);
     }
-
 ?>

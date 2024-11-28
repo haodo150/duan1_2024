@@ -42,7 +42,7 @@
                
                 foreach($_SESSION['cart'] as &$products){
                     if($products['id_product'] == $id_product ){
-                          // th1: đã có trong giỏ -> tăng số lương
+                          // th1: đã có trong giỏ -> tăng số lượng
 
                           $products['quantity']++;
                           
@@ -87,11 +87,31 @@
                 break;
             case 'process-checkout':
                 // Xử lý
+                if(!isset($_SESSION['cart'])){
+                    $_SESSION['cart'] = [];
+                }
                 include_once "model/m_order.php";
-                $user = $_SESSION['user']['id_user'];
+                $id_user = $_SESSION['user']['id_user'];
+                $fullname = $_POST['fullname'];
+                $address = $_POST['address'];
+                $city = $_POST['city'];
+                $phone = $_POST['phone'];
+                $email = $_POST['email'];
+                $note = $_POST['note'];
                 $datetime = date('Y-m-d');
                 $quantity = $_SESSION['quantity'];
-                $total = $_SESSION['total'];
+                $total = 1000;//$_SESSION['total'];
+                print_r($_POST);
+                // order_add(1,2,1000,'Huy', 'abc', 'HCM', '0123456', 'huy@gmail.com', 'abc', '2021-12-03', 'cart');
+                $id_order = order_add($id_user, $quantity, $total, $fullname, $address, $city, $phone, $email, $note, $datetime, 'cart');
+                // foreach($_SESSION['cart'] as $check){
+                //     order_addDetail($id_order, $check['id_products'], $check['quantity']);
+                // }
+                unset($_SESSION['cart']);
+                // Hiển thị
+                include_once "view/header.php";
+                include_once "view/checkoutPass.php";
+                include_once "view/footer.php";
                 break;
             default:
                 # code...
