@@ -14,4 +14,8 @@ function comment_getByBook($id_product)
     = tk.id_user WHERE id_product=? ORDER BY date_time DESC";
     return pdo_getAll($sql, $id_product);
 }
+function cmt_count(){
+    $sql = "SELECT COUNT(*) FROM comment";
+    return pdo_getValue($sql);
+}
 ?>

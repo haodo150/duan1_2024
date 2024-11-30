@@ -29,6 +29,7 @@
                 placeholder="Your Password" 
                 class="form__input"
               />
+              <a href="#">Forgot Password</a>
 
               
               <?php ?>

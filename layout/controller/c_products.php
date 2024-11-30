@@ -69,30 +69,51 @@
                 header('Location: ?mod=product&act=cart');
                 break;
 
-            case 'checkout':
-                // Xử lý thông tin sản phẩm trong giỏ hàng (load sp trong giỏ hàng)
-                include_once "model/m_products.php";
-                $checkout = $_SESSION['cart'];
-                foreach($checkout as &$check){
-                    $detailCart = home_products_getById($check['id_product']);
-                    $check['name_products'] = $detailCart['name_products'];
-                    $check['img'] = $detailCart['img'];
-                    $check['price_products'] = $detailCart['price_products'];
-                    $check['subtotal'] = $check['price_products'] * $check['quantity'];
-                }
-                // Hiển thị
-                include_once "view/header.php";
-                include_once "view/checkout.php";
-                include_once "view/footer.php";
-                break;
-            case 'process-checkout':
-                // Xử lý
-                include_once "model/m_order.php";
-                $user = $_SESSION['user']['id_user'];
-                $datetime = date('Y-m-d');
-                $quantity = $_SESSION['quantity'];
-                $total = $_SESSION['total'];
-                break;
+                case 'checkout':
+                    // Xử lý thông tin sản phẩm trong giỏ hàng (load sp trong giỏ hàng)
+                    include_once "model/m_products.php";
+                    $checkout = $_SESSION['cart'];
+                    foreach($checkout as &$check){
+                        $detailCart = home_products_getById($check['id_product']);
+                        $check['name_products'] = $detailCart['name_products'];
+                        $check['img'] = $detailCart['img'];
+                        $check['price_products'] = $detailCart['price_products'];
+                        $check['subtotal'] = $check['price_products'] * $check['quantity'];
+                    }
+                    // Hiển thị
+                    include_once "view/header.php";
+                    include_once "view/checkout.php";
+                    include_once "view/footer.php";
+                    break;
+                case 'process-checkout':
+                    // Xử lý
+                    if(!isset($_SESSION['cart'])){
+                        $_SESSION['cart'] = [];
+                    }
+                    include_once "model/m_order.php";
+                    $id_user = $_SESSION['user']['id_user'];
+                    $fullname = $_POST['fullname'];
+                    $address = $_POST['address'];
+                    $city = $_POST['city'];
+                    $phone = $_POST['phone'];
+                    $email = $_POST['email'];
+                    $note = $_POST['note'];
+                    $datetime = date('Y-m-d');
+                    $quantity = $_SESSION['quantity'];
+                    $total = $_SESSION['total'];
+                    // print_r($_POST);
+                    // order_add(1,2,1000,'Huy', 'abc', 'HCM', '0123456', 'huy@gmail.com', 'abc', '2021-12-03', 'cart');
+                    $id_order = order_add($id_user, $quantity, $total, $fullname, $address, $city, $phone, $email, $note, $datetime, 'cart');
+                    // foreach($_SESSION['cart'] as $check){
+                    //     order_addDetail($id_order, $check['id_products'], $check['quantity']);
+                    // }
+                    unset($_SESSION['cart']);
+                    unset($_POST);
+                    // Hiển thị
+                    include_once "view/header.php";
+                    include_once "view/checkoutPass.php";
+                    include_once "view/footer.php";
+                    break;
             default:
                 # code...
                 break;

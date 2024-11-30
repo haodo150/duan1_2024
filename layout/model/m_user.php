@@ -23,4 +23,14 @@
         pdo_execute($sql, $Username, $Email, md5($Password));
 
     }
+
+    function user_getAll(){
+        $sql = "SELECT * FROM account_user";
+        return pdo_getAll($sql);
+    }
+
+    function user_count(){
+        $sql = "SELECT COUNT(*) FROM account_user";
+        return pdo_getValue($sql);
+    }
 ?>
