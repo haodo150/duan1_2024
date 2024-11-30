@@ -42,7 +42,7 @@
                
                 foreach($_SESSION['cart'] as &$products){
                     if($products['id_product'] == $id_product ){
-                          // th1: đã có trong giỏ -> tăng số lương
+                          // th1: đã có trong giỏ -> tăng số lượng
 
                           $products['quantity']++;
                           
