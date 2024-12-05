@@ -31,7 +31,14 @@
             <p class="account__tab" data-target="#change-password">
               <i class="fi fi-rs-user"></i> Change Password
             </p>
-
+            <?php if($_SESSION['user']['role'] > 0 ): ?>
+              <a href="admin.php?mod=page&act=dashboard">
+                <p class="account__tab" data-target="#admin">
+                  <i class="fi fi-rs-user"></i> 
+                  Admin Page
+                </p>
+              </a>
+            <?php endif; ?>
             <a href="?mod=user&act=logout">
               <p class="account__tab">
                 <i class="fi fi-rs-exit"></i> 

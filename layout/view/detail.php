@@ -22,7 +22,7 @@
             <p class="details__brand">Brands: <span><?= $productDetail['name_categories']?></span></p>
 
             <div class="details__price flex">
-              <span class="new__price">$<?= $productDetail['price_products']?></span>
+              <span class="new__price"><?= number_format($productDetail['price_products'])?> VND</span>
             </div>
 
             <p class="short__description">
@@ -46,76 +46,9 @@
               </li>
             </ul>
 
-            <div class="details__color flex">
-              <span class="details__color-title">Color</span>
+            
 
-              <ul class="color__list">
-                <li>
-                  <a 
-                    href="#" 
-                    class="color__link" 
-                    style="background-color: hsl(37, 100%, 65%);"></a>
-                </li>
-
-                <li>
-                  <a 
-                    href="#" 
-                    class="color__link" 
-                    style="background-color: hsl(353, 100%, 67%);"></a>
-                </li>
-
-                <li>
-                  <a 
-                    href="#" 
-                    class="color__link" 
-                    style="background-color: hsl(49, 100%, 60%);"></a>
-                </li>
-
-                <li>
-                  <a 
-                    href="#" 
-                    class="color__link" 
-                    style="background-color: hsl(304, 100%, 78%);"></a>
-                </li>
-
-                <li>
-                  <a 
-                    href="#" 
-                    class="color__link" 
-                    style="background-color: hsl(126, 61%, 52%);"></a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="details__size flex">
-              <span class="details__size-title">Size</span>
-
-              <ul class="size__list">
-                <li>
-                  <a href="#" class="size__link size-active">38</a>
-                </li>
-
-                <li>
-                  <a href="#" class="size__link">39</a>
-                </li>
-
-                <li>
-                  <a href="#" class="size__link">40</a>
-                </li>
-
-                <li>
-                  <a href="#" class="size__link">41</a>
-                </li>
-
-                <li>
-                  <a href="#" class="size__link">42</a>
-                </li>
-
-                <li>
-                  <a href="#" class="size__link">43</a>
-                </li>
-              </ul>
-            </div>
+            
             <?php if(isset($_SESSION['alert'])): ?>
                 <div class="alert-danger">
                   <?= $_SESSION['alert'] ?>
@@ -123,13 +56,12 @@
               <?php endif; unset($_SESSION['alert']) ?>
 
             <div class="details__action">
-              <input type="number" class="quantity" value="1">
+              <?php if(isset($_SESSION['user'])): ?>
+                <a href="?mod=product&act=addToCart&id=<?= $productDetail['id_product']?>" class="btn btn--sm">Add to Cart</a>
+              <?php else: ?>
+                <a href="?mod=user&act=login" class="btn btn--sm">Login to add to cart</a>
+              <?php endif; ?>
               
-              <a href="?mod=product&act=addToCart&id=<?= $productDetail['id_product']?>" class="btn btn--sm">Add to Cart</a>
-
-              <a href="#" class="details__action-btn">
-                <i class="fi fi-rs-heart"></i>
-              </a>
             </div>
 
             <ul class="details__meta">
@@ -151,7 +83,7 @@
           <span class="detail__tab active-tab" data-target="#info">
             Additonal Info
           </span>
-          <span class="detail__tab" data-target="#reviews">Reviews(3)</span>
+          <span class="detail__tab" data-target="#reviews">Reviews</span>
         </div>
 
         <div class="details__tabs-content">
@@ -268,19 +200,22 @@
                 <i class="fi fi-rs-star"></i>
                 <i class="fi fi-rs-star"></i>
               </div>
-
-              <form action="?mod=comment&act=post-comment" method="post" class="form grid">
+              <?php if(isset($_SESSION['user'])): ?>
+                <form action="?mod=comment&act=post-comment" method="post" class="form grid">
                 <input type="hidden" name="id_product" value="<?= $productDetail['id_product'] ?>">
                 <textarea class="form__input textarea" name="content" placeholder="Wirte Comment"></textarea>
-
+                <div class="form__btn">
+                  <button class="btn">Submit Review</button>
+                </div>
+              <?php else: ?>
+                <p class="form__message">You must be loggin to post your comment</p>
+              <?php endif; ?>
                 <!-- <div class="form__group grid">
                   <input type="text" placeholder="Name" class="form__input" />
                   <input type="email" placeholder="Email" class="form__input" />
                 </div> -->
 
-                <div class="form__btn">
-                  <button class="btn">Submit Review</button>
-                </div>
+               
               </form>
             </div>
           </div>
@@ -296,28 +231,18 @@
 
           <div class="product__item">
             <div class="product__banner">
-              <a href="?mod=page&act=detail&id=<?= $productDetail['id_product']?>" class="product__images">
+              <a href="?mod=product&act=detail&id=<?= $productDetail['id_product']?>" class="product__images">
                 <img src="public/assets/img/a1,1.png" alt="" class="product__img default">
 
-                <img src="public/assets/img/a1,2.png" alt="" class="product__img hover">
+                
               </a>
-              <div class="product__actions">
-                <a href="#" class="action__btn" aria-label="Quick View">
-                  <i class="fi fi-rs-eye"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                  <i class="fi fi-rs-heart"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Compare">
-                  <i class="fi fi-rs-shuffle "></i>
-                </a>
-              </div>
+             
 
               <div class="product__badge light-green">Hot</div>
             </div>
             <div class="product__content">
               <span class="product__category">Clothing</span>
-              <a href="?mod=page&act=detail&id=<?= $productDetail['id_product']?>">
+              <a href="?mod=product&act=detail&id=<?= $productDetail['id_product']?>">
                 <h3 class="product__title">Colorful Pattern Shirts</h3>
               </a>
               <div class="product__rating">
@@ -328,40 +253,28 @@
                 <i class="fi fi-rs-star"></i>
               </div>
               <div class="product__price flex">
-                <span class="new__price">$200.00</span>
-                <span class="old__price">$245.00</span>
+                <span class="new__price">2.000.000 VND</span>
+                <span class="old__price">2.450.000 VND</span>
               </div>
 
-              <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-              </a>
+             
             </div>
           </div>
 
           <div class="product__item">
             <div class="product__banner">
-              <a href="?mod=page&act=detail&id=<?= $productDetail['id_product']?>" class="product__images">
+              <a href="?mod=product&act=detail&id=<?= $productDetail['id_product']?>" class="product__images">
                 <img src="public/assets/img/a2,1.png" alt="" class="product__img default">
 
-                <img src="public/assets/img/a2,2.png" alt="" class="product__img hover">
+                
               </a>
-              <div class="product__actions">
-                <a href="#" class="action__btn" aria-label="Quick View">
-                  <i class="fi fi-rs-eye"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                  <i class="fi fi-rs-heart"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Compare">
-                  <i class="fi fi-rs-shuffle "></i>
-                </a>
-              </div>
+             
 
               <div class="product__badge light-orange">Hot</div>
             </div>
             <div class="product__content">
               <span class="product__category">Clothing</span>
-              <a href="?mod=page&act=detail&id=<?= $productDetail['id_product']?>">
+              <a href="?mod=product&act=detail&id=<?= $productDetail['id_product']?>">
                 <h3 class="product__title">Colorful Pattern Shirts</h3>
               </a>
               <div class="product__rating">
@@ -372,40 +285,28 @@
                 <i class="fi fi-rs-star"></i>
               </div>
               <div class="product__price flex">
-                <span class="new__price">$200.00</span>
-                <span class="old__price">$245.00</span>
+                <span class="new__price">2.000.000 VND</span>
+                <span class="old__price">2.450.000 VND</span>
               </div>
 
-              <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-              </a>
+             
             </div>
           </div>
 
           <div class="product__item">
             <div class="product__banner">
-              <a href="?mod=page&act=detail&id=<?= $productDetail['id_product']?>" class="product__images">
+              <a href="?mod=product&act=detail&id=<?= $productDetail['id_product']?>" class="product__images">
                 <img src="public/assets/img/a3,1.png" alt="" class="product__img default">
 
-                <img src="public/assets/img/a3,2.png" alt="" class="product__img hover">
+                
               </a>
-              <div class="product__actions">
-                <a href="#" class="action__btn" aria-label="Quick View">
-                  <i class="fi fi-rs-eye"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                  <i class="fi fi-rs-heart"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Compare">
-                  <i class="fi fi-rs-shuffle "></i>
-                </a>
-              </div>
+             
 
               <div class="product__badge light-pink">-30%</div>
             </div>
             <div class="product__content">
               <span class="product__category">Clothing</span>
-              <a href="?mod=page&act=detail&id=<?= $productDetail['id_product']?>">
+              <a href="?mod=product&act=detail&id=<?= $productDetail['id_product']?>">
                 <h3 class="product__title">Colorful Pattern Shirts</h3>
               </a>
               <div class="product__rating">
@@ -416,40 +317,28 @@
                 <i class="fi fi-rs-star"></i>
               </div>
               <div class="product__price flex">
-                <span class="new__price">$200.00</span>
-                <span class="old__price">$245.00</span>
+                <span class="new__price">2.000.000 VND</span>
+                <span class="old__price">2.450.000 VND</span>
               </div>
 
-              <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-              </a>
+             
             </div>
           </div>
 
           <div class="product__item">
             <div class="product__banner">
-              <a href="?mod=page&act=detail&id=<?= $productDetail['id_product']?>" class="product__images">
+              <a href="?mod=product&act=detail&id=<?= $productDetail['id_product']?>" class="product__images">
                 <img src="public/assets/img/a4,1.png" alt="" class="product__img default">
 
-                <img src="public/assets/img/a4,2.png" alt="" class="product__img hover">
+                
               </a>
-              <div class="product__actions">
-                <a href="#" class="action__btn" aria-label="Quick View">
-                  <i class="fi fi-rs-eye"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                  <i class="fi fi-rs-heart"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Compare">
-                  <i class="fi fi-rs-shuffle "></i>
-                </a>
-              </div>
+             
 
               <div class="product__badge light-pink">-22%</div>
             </div>
             <div class="product__content">
               <span class="product__category">Clothing</span>
-              <a href="?mod=page&act=detail&id=<?= $productDetail['id_product']?>">
+              <a href="?mod=product&act=detail&id=<?= $productDetail['id_product']?>">
                 <h3 class="product__title">Colorful Pattern Shirts</h3>
               </a>
               <div class="product__rating">
@@ -460,13 +349,11 @@
                 <i class="fi fi-rs-star"></i>
               </div>
               <div class="product__price flex">
-                <span class="new__price">$200.00</span>
-                <span class="old__price">$245.00</span>
+                <span class="new__price">2.000.000 VND</span>
+                <span class="old__price">2.450.000 VND</span>
               </div>
 
-              <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-              </a>
+             
             </div>
           </div>
 

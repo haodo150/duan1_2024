@@ -19,20 +19,8 @@
             <div class="product__banner">
               <a href="?mod=product&act=detail&id=<?= $sanpham['id_product']?>" class="product__images">
                 <img src="<?= $baseURL?><?= $sanpham['img']?>" alt="" class="product__img default">
-
-                <img src="public/assets/img/j1.2.png" alt="" class="product__img hover">
               </a>
-              <div class="product__actions">
-                <a href="#" class="action__btn" aria-label="Quick View">
-                  <i class="fi fi-rs-eye"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                  <i class="fi fi-rs-heart"></i>
-                </a>
-                <a href="#" class="action__btn" aria-label="Compare">
-                  <i class="fi fi-rs-shuffle "></i>
-                </a>
-              </div>
+              
 
               <div class="product__badge light-pink">Hot</div>
             </div>
@@ -49,27 +37,15 @@
                 <i class="fi fi-rs-star"></i>
               </div>
               <div class="product__price flex">
-                <span class="new__price">$<?= $sanpham['price_products']?></span>
+                <span class="new__price"><?= number_format($sanpham['price_products'])?> VND</span>
               </div>
 
-              <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-              </a>
+             
             </div>
           </div>
           <?php  endforeach; ?>
 
-        <ul class="pagination">
-          <li><a href="#" class="pagination__link active">01</a></li>
-          <li><a href="#" class="pagination__link">02</a></li>
-          <li><a href="#" class="pagination__link">03</a></li>
-          <li><a href="#" class="pagination__link">...</a></li>
-          <li><a href="#" class="pagination__link">16</a></li>
-          <li>
-            <a href="#" class="pagination__link icon">
-              <i class="fi-rs-angle-double-small-right"></i>
-            </a></li>
-        </ul>
+       
       </section>
 
      

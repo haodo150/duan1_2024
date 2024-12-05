@@ -49,17 +49,7 @@
 
                       <!-- <img src="public/assets/img/n1.2.png" alt="" class="product__img hover"> -->
                     </a>
-                    <div class="product__actions">
-                      <a href="#" class="action__btn" aria-label="Quick View">
-                        <i class="fi fi-rs-eye"></i>
-                      </a>
-                      <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                        <i class="fi fi-rs-heart"></i>
-                      </a>
-                      <a href="#" class="action__btn" aria-label="Compare">
-                        <i class="fi fi-rs-shuffle "></i>
-                      </a>
-                    </div>
+                   
 
                     <div class="product__badge light-pink">Hot</div>
                   </div>
@@ -76,12 +66,10 @@
                       <i class="fi fi-rs-star"></i>
                     </div>
                     <div class="product__price flex">
-                      <span class="new__price">$<?= $featured['price_products']?></span>
+                      <span class="new__price"><?= number_format($featured['price_products'])?> VND</span>
                     </div>
 
-                    <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                      <i class="fi fi-rs-shopping-bag-add"></i>
-                    </a>
+                    
                   </div>
                 </div>
               <?php endforeach; ?>
@@ -98,19 +86,9 @@
                     <a href="?mod=product&act=detail&id=<?= $populer['id_product']?>" class="product__images">
                       <img src="<?= $baseURL?><?= $populer['img']?>" alt="" class="product__img default">
 
-                      <img src="public/assets/img/n1.2.png" alt="" class="product__img hover">
+                      
                     </a>
-                    <div class="product__actions">
-                      <a href="#" class="action__btn" aria-label="Quick View">
-                        <i class="fi fi-rs-eye"></i>
-                      </a>
-                      <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                        <i class="fi fi-rs-heart"></i>
-                      </a>
-                      <a href="#" class="action__btn" aria-label="Compare">
-                        <i class="fi fi-rs-shuffle "></i>
-                      </a>
-                    </div>
+                   
 
                     <div class="product__badge light-pink">Hot</div>
                   </div>
@@ -127,12 +105,10 @@
                       <i class="fi fi-rs-star"></i>
                     </div>
                     <div class="product__price flex">
-                      <span class="new__price">$<?= $populer['price_products']?></span>
+                      <span class="new__price"><?= number_format($populer['price_products'])?> VND</span>
                     </div>
 
-                    <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                      <i class="fi fi-rs-shopping-bag-add"></i>
-                    </a>
+                    
                   </div>
                 </div>
               <?php endforeach; ?>
@@ -147,19 +123,8 @@
                   <div class="product__banner">
                     <a href="?mod=product&act=detail&id=<?= $new_added['id_product']?>" class="product__images">
                       <img src="<?= $baseURL?><?= $new_added['img']?>" alt="" class="product__img default">
-                      <img src="public/assets/img/a1,3.png" alt="" class="product__img hover">
                     </a>
-                    <div class="product__actions">
-                      <a href="#" class="action__btn" aria-label="Quick View">
-                        <i class="fi fi-rs-eye"></i>
-                      </a>
-                      <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                        <i class="fi fi-rs-heart"></i>
-                      </a>
-                      <a href="#" class="action__btn" aria-label="Compare">
-                        <i class="fi fi-rs-shuffle "></i>
-                      </a>
-                    </div>
+                   
 
                     <div class="product__badge light-pink">Hot</div>
                   </div>
@@ -176,12 +141,10 @@
                       <i class="fi fi-rs-star"></i>
                     </div>
                     <div class="product__price flex">
-                      <span class="new__price">$<?= $new_added['price_products']?></span>
+                      <span class="new__price"><?= number_format($new_added['price_products'])?> VND</span>
                     </div>
 
-                    <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                      <i class="fi fi-rs-shopping-bag-add"></i>
-                    </a>
+                    
                   </div>
                 </div>
               <?php endforeach; ?>
@@ -207,8 +170,8 @@
             <h4 class="deals__title">Summer Collection New Morden Design</h4>
 
             <div class="deals__price flex">
-              <span class="new__price">$139.00</span>
-              <span class="old__price">$160.99</span>
+              <span class="new__price">2.000.000 VND</span>
+              <span class="old__price">2.500.000 VND</span>
             </div>
 
             <div class="deals__group">
@@ -248,8 +211,8 @@
             <h4 class="deals__title">Try Something New On Vacation</h4>
 
             <div class="deals__price flex">
-              <span class="new__price">$139.00</span>
-              <span class="old__price">$160.99</span>
+              <span class="new__price">2.000.000 VND</span>
+              <span class="old__price">2.500.000 VND</span>
             </div>
 
             <div class="deals__group">
@@ -293,20 +256,8 @@
                 <div class="product__banner">
                   <a href="?mod=product&act=detail&id=<?= $new_arrival['id_product']?>" class="product__images">
                     <img src="<?= $baseURL?><?= $new_arrival['img']?>" alt="" class="product__img default">
-
-                    <img src="public/assets/img/a1,3.png" alt="" class="product__img hover">
                   </a>
-                  <div class="product__actions">
-                    <a href="#" class="action__btn" aria-label="Quick View">
-                      <i class="fi fi-rs-eye"></i>
-                    </a>
-                    <a href="#" class="action__btn" aria-label="Add To Wishlist">
-                      <i class="fi fi-rs-heart"></i>
-                    </a>
-                    <a href="#" class="action__btn" aria-label="Compare">
-                      <i class="fi fi-rs-shuffle "></i>
-                    </a>
-                  </div>
+                 
 
                   <div class="product__badge light-pink">Hot</div>
                 </div>
@@ -323,12 +274,10 @@
                     <i class="fi fi-rs-star"></i>
                   </div>
                   <div class="product__price flex">
-                    <span class="new__price">$<?= $new_arrival['price_products']?></span>
+                    <span class="new__price"><?= number_format($new_arrival['price_products'])?> VND</span>
                   </div>
 
-                  <a href="#" class="action__btn cart__btn" aria-label="Add To Cart">
-                    <i class="fi fi-rs-shopping-bag-add"></i>
-                  </a>
+                 
                 </div>
               </div>
             <?php endforeach; ?>
@@ -362,8 +311,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -384,8 +333,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -406,8 +355,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -432,8 +381,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -454,8 +403,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -476,8 +425,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -502,8 +451,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -524,8 +473,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -546,8 +495,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -572,8 +521,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -594,8 +543,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>
@@ -616,8 +565,8 @@
                   </a>
 
                   <div class="showcase__price flex">
-                    <span class="new__price">$238.85</span>
-                    <span class="old__price">$245.8</span>
+                    <span class="new__price">2.000.000 VND</span>
+                    <span class="old__price">2.450.000 VND</span>
                   </div>
                 </div>
               </div>

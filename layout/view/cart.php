@@ -31,9 +31,9 @@
                 <p class="table__description">Maboriosam in a tonto nesciung distingy magndapibus</p>
               </td>
 
-              <td><span class="table__price">$<?=$product['price_products']?></span></td>
+              <td><span class="table__price"><?= number_format($product['price_products'])?> VND</span></td>
               <td><?=$product['quantity']?></td>
-              <td><span class="table__subtotal">$<?=number_format($product['subtotal'])?></span></td>
+              <td><span class="table__subtotal"><?=number_format($product['subtotal'])?> VND</span></td>
               <td><a href="?mod=product&act=delete&index=<?= $i-1 ?>"><i class="fi fi-rs-trash table__trash"></i></a></td>
             </tr>
              <?php 
@@ -58,38 +58,7 @@
 
         <div class="cart__group grid">
           <div>
-            <div class="cart__shipping">
-              <h3 class="section__title">Calculate Shipping</h3>
-
-              <form action="" class="form grid">
-                <input type="text" placeholder="State / Country" class="form__input">
-
-                <div class="form__group grid">
-                  <input type="text" placeholder="City" class="form__input">
-
-                  <input type="text" placeholder="PostCode / ZIP" class="form__input">
-                </div>
-
-                <div class="form__btn">
-                  <button class="btn flex btn--sm">
-                    <i class="fi-rs-shuffle">Update</i>
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            <div class="cart__coupon">
-              <h3 class="section__title">Apply Coupon</h3>
-              <form action="" class="coupon__form form grid">
-                <div class="form__group grid">
-                  <input type="text" class="form__input" placeholder="Enter Your Coupon">
-
-                  <div class="form__btn">
-                    <button class="btn flex btn--sm">
-                      <i class="fi-rs-label">Apply</i>
-                    </button>
-                  </div>
-                </div>
+            
               </form>
             </div>
           </div>
@@ -101,7 +70,7 @@
 
               <tr>
                 <td><span class="cart__total-title"></span>Total</td>
-                <td><span class="cart__total-price"></span>$<?= number_format($tong)  ?></td>
+                <td><span class="cart__total-price"></span><?= number_format($tong)?> VND</td>
               </tr>
             </table>
 
