@@ -64,9 +64,10 @@
         </div> 
     </div>
 </div>
-<div id="myChart" style="max-width:700px; height:400px"></div>
+<div class="col-md-6 flex">
+    <div id="myChart" style="max-width:700px; height:400px"></div>
+</div>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
-
 <script>
     // // Dữ liệu mẫu cho biểu đồ
     // const salesData = {
@@ -96,7 +97,9 @@
     //     }
     // });
 </script>
+
 <script>
+    // doanh thu
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -118,8 +121,6 @@ const options = {
 const chart = new google.visualization.LineChart(document.getElementById('myChart'));
 chart.draw(data, options);
 }
-
-
 </script>
 
 </body>
