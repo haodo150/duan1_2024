@@ -32,13 +32,20 @@
               </td>
 
               <td><span class="table__price"><?= number_format($product['price_products'])?> VND</span></td>
-              <td><?=$product['quantity']?></td>
+
+              <td>
+              <a href="?mod=product&act=decrease&id=<?= $product['id_product'] ?>" class="btn btn-sm btn-outline-primary">-</a>
+              <?=$product['quantity']?>
+              <a href="?mod=product&act=increase&id=<?= $product['id_product'] ?>" class="btn btn-sm btn-outline-primary">+</a>
+
+              </td>
               <td><span class="table__subtotal"><?=number_format($product['subtotal'])?> VND</span></td>
               <td><a href="?mod=product&act=delete&index=<?= $i-1 ?>"><i class="fi fi-rs-trash table__trash"></i></a></td>
             </tr>
              <?php 
              $i++;
             $tong += $product['subtotal'];
+            
             endforeach; ?>
             
 

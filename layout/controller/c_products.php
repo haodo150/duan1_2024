@@ -31,7 +31,7 @@
                 include_once "view/cart.php";
                 include_once "view/footer.php";
                 break;
-
+                   
             case 'addToCart':
                 // Tạo ra giỏ hàng nếu chưa có
                 if(!isset($_SESSION['cart'])){
@@ -39,11 +39,9 @@
                 }
                 $id_product =$_GET['id'];
                 $inCart=false; // giả xử chưa có trong giỏ
-               
+               // th1: đã có trong giỏ -> tăng số lượng
                 foreach($_SESSION['cart'] as &$products){
                     if($products['id_product'] == $id_product ){
-                          // th1: đã có trong giỏ -> tăng số lượng
-
                           $products['quantity']++;
                           
                           $inCart=true;
@@ -62,6 +60,31 @@
                 header("Location: ?mod=product&act=detail&id=$id_product");
 
                 break;
+                
+                case 'increase':
+                    $id_product = $_GET['id'];
+                    foreach($_SESSION['cart'] as &$products){
+                        if($products['id_product'] == $id_product){
+                            $products['quantity']++; 
+                            break;
+                        }
+                    }
+                    header('Location: ?mod=product&act=cart');
+                    break;                
+                
+                    case 'decrease':
+                        $id_product = $_GET['id'];
+                        foreach($_SESSION['cart'] as &$products){
+                            if($products['id_product'] == $id_product){
+                                if($products['quantity'] > 1){
+                                    $products['quantity']--; 
+                                }
+                                break;
+                            }
+                        }
+                        header('Location: ?mod=product&act=cart');
+                        break;
+                 
 
             case 'delete':
                 $index = $_GET['index'];

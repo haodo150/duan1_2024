@@ -35,14 +35,14 @@ if (isset($_GET['act'])) {
             include_once "view/v_admin_header.php";
             include_once "view/v_admin_user.php";    
         break;
-        case 'brand':
-            // Xử lý
-            include_once "model/m_products.php";
-            $brandList = loadTh_getAll();
-            // Hiển thị
-            include_once "view/v_admin_header.php";
-            include_once "view/v_admin_brand.php";    
-            break;
+        // case 'brand':
+        //     // Xử lý
+        //     include_once "model/m_products.php";
+        //     $brandList = loadTh_getAll();
+        //     // Hiển thị
+        //     include_once "view/v_admin_header.php";
+        //     include_once "view/v_admin_brand.php";    
+        //     break;
         case 'donhang':
             // Xử lý
             include_once "model/m_order.php";
@@ -223,6 +223,99 @@ if (isset($_GET['act'])) {
             header("Location: admin.php?mod=page&act=user");
             exit; // Kết thúc script sau khi chuyển hướng
         break;
+ //----------------------------------------------------------------
+        case 'categories':
+            // Gọi model
+            include_once "model/m_categories.php";
+            
+            // Lấy danh sách danh mục từ cơ sở dữ liệu
+            $categoryList = category_getAll();
+            
+            // Hiển thị header và danh sách danh mục
+            include_once "view/v_admin_header.php";
+            include_once "view/v_admin_categorylist.php";    
+            break;
+        case 'categoryAdd':
+            include_once "model/m_categories.php";
+            // Kiểm tra và xử lý form submit
+            if (isset($_POST['submit'])) {
+                $name_categories = $_POST['name_categories'];
+                $img = $_FILES['img'];  // Lấy thông tin ảnh từ form
+                    
+                // Gọi hàm thêm danh mục
+                $result = category_add($name_categories, $img);
+            
+                // Hiển thị kết quả
+                echo $result;
+            }
+            
+            // Bao gồm các view để hiển thị form thêm danh mục
+            include_once "view/v_admin_header.php";
+            include_once "view/v_admin_categoryadd.php";  
+            break;
+        case 'categoryUpdate':
+            include_once "model/m_categories.php";
+            // Kiểm tra ID danh mục từ URL
+            $id = $_GET['id'] ?? null;
+            
+            if ($id) {
+                // Lấy thông tin danh mục từ cơ sở dữ liệu
+                $category = category_getById($id);
+                    
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $name_categories = $_POST['name_categories'];
+                    $img = $_FILES['img'];  // Lấy ảnh mới nếu có
+            
+                    // Nếu người dùng chọn ảnh mới, tải lên và cập nhật
+                    if ($img['name']) {
+                        // Xử lý ảnh mới và cập nhật đường dẫn ảnh
+                        $targetDir = "public/assets/img/";
+                        $targetFile = $targetDir . basename($img["name"]);
+            
+                        if (move_uploaded_file($img["tmp_name"], $targetFile)) {
+                            $imgPath = $targetFile; // Đường dẫn ảnh mới
+                        } else {
+                            echo "Có lỗi khi tải ảnh lên!";
+                            break;
+                        }
+                    } else {
+                        // Nếu không có ảnh mới, giữ nguyên ảnh cũ
+                        $imgPath = $category['img'];
+                    }
+            
+                    // Cập nhật danh mục vào cơ sở dữ liệu
+                    category_update($id, $name_categories, $imgPath);
+            
+                    echo "Danh mục đã được cập nhật!";
+                    header("Location: admin.php?mod=page&act=categories");
+                    exit;
+                }
+            
+                // Bao gồm view sửa danh mục
+                include_once "view/v_admin_header.php";
+                include_once "view/v_admin_categoryupdate.php";  
+            } else {
+                echo "ID danh mục không hợp lệ.";
+            }
+            break;
+            case 'categoryDelete':
+                include_once "model/m_categories.php";
+                // Kiểm tra ID danh mục từ URL
+                $id = $_GET['id'] ?? null;
+            
+                if ($id) {
+                    // Gọi hàm xóa danh mục từ model
+                    category_delete($id);
+            
+                    // Hiển thị thông báo và chuyển hướng về trang danh mục
+                    echo "Danh mục đã được xóa thành công!";
+                    header("Location: admin.php?mod=page&act=categories");
+                    exit; // Dừng script sau khi chuyển hướng
+                } else {
+                    echo "ID danh mục không hợp lệ.";
+                }
+                break;
+
     }
 } else{
     header("Location: ?mod=page&act=home");

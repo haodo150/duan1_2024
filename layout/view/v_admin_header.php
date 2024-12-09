@@ -20,7 +20,7 @@
 <nav>
     <ul>
         <li><a href="admin.php?mod=page&act=dashboard">Trang Chủ</a></li>
-        <li><a href="admin.php?mod=page&act=brand">Thương Hiệu Giầy</a></li>
+        <li><a href="admin.php?mod=page&act=categories">Thương Hiệu Giầy</a></li>
         <li><a href="admin.php?mod=page&act=product">Sản phẩm</a></li>
         <li><a href="admin.php?mod=page&act=user">Người dùng</a></li>
         <li><a href="admin.php?mod=page&act=donhang">Đơn hàng</a></li>
